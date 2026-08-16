@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Contact - SmartExcel</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <!-- Navigation injected by nav.js -->
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="section">
+            <h1 data-i18n="about.title">About &amp; Contact</h1>
+
+            <!-- About Illustration -->
+            <div class="page-illustration" style="text-align:center; margin: 1.5rem 0;">
+                <svg width="260" height="150" viewBox="0 0 260 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Team collaboration and trust illustration showing two people shaking hands">
+                    <!-- Background circle -->
+                    <circle cx="130" cy="75" r="60" fill="#e6f7f4"/>
+                    <!-- Left person -->
+                    <circle cx="95" cy="55" r="14" fill="#0f7b6c"/>
+                    <rect x="82" y="72" width="26" height="36" rx="8" fill="#0f7b6c"/>
+                    <!-- Right person -->
+                    <circle cx="165" cy="55" r="14" fill="#14a08c"/>
+                    <rect x="152" y="72" width="26" height="36" rx="8" fill="#14a08c"/>
+                    <!-- Handshake -->
+                    <path d="M108 90 Q120 100 130 95 Q140 90 130 85" stroke="#0f7b6c" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M152 90 Q140 100 130 95 Q120 90 130 85" stroke="#14a08c" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <!-- Connection dots -->
+                    <circle cx="130" cy="40" r="4" fill="#0f7b6c" opacity="0.3"/>
+                    <circle cx="55" cy="75" r="3" fill="#14a08c" opacity="0.4"/>
+                    <circle cx="205" cy="75" r="3" fill="#0f7b6c" opacity="0.4"/>
+                    <circle cx="130" cy="125" r="5" fill="#14a08c" opacity="0.25"/>
+                    <!-- Stars/trust indicators -->
+                    <path d="M50 35 L51.5 39 L55 40 L51.5 41 L50 45 L48.5 41 L45 40 L48.5 39 Z" fill="#14a08c" opacity="0.5"/>
+                    <path d="M210 35 L211.5 39 L215 40 L211.5 41 L210 45 L208.5 41 L205 40 L208.5 39 Z" fill="#0f7b6c" opacity="0.5"/>
+                </svg>
+            </div>
+
+            <!-- About Section -->
+            <section class="about-section" aria-labelledby="about-heading">
+                <h2 id="about-heading" data-i18n="about.heading">About SmartExcel</h2>
+                <p data-i18n="about.description1">SmartExcel is a web-based platform designed to help individuals and small businesses work with Excel files quickly, accurately, and without requiring advanced technical skills. Our goal is to eliminate the hours spent on repetitive spreadsheet tasks — comparing lists, removing duplicates, cleaning messy data, and building summary reports — so you can focus on what matters most.</p>
+                <p data-i18n="about.description2">Many people struggle with Excel formulas, pivot tables, and VBA macros. SmartExcel solves this by providing a simple browser-based interface where you upload your files, choose an action, and receive professional results in seconds.</p>
+                <h3 data-i18n="about.features.title">Key Features</h3>
+                <ul class="feature-list">
+                    <li data-i18n="about.features.1">Compare two Excel files and instantly see matches, differences, and duplicates</li>
+                    <li data-i18n="about.features.2">Clean and organize messy data — remove duplicates, empty rows, and extra spaces</li>
+                    <li data-i18n="about.features.3">Generate dashboards with KPI cards and charts from raw data</li>
+                    <li data-i18n="about.features.4">No software installation required — works entirely in the browser</li>
+                    <li data-i18n="about.features.5">Accessible to non-technical users with a clean, intuitive interface</li>
+                </ul>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" data-i18n="about.contact.title">Contact Us</h2>
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="fullname" class="form-label"><span data-i18n="about.form.fullname">Full Name</span> <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="text" id="fullname" name="fullname" class="form-input" required aria-required="true" placeholder="Enter your full name" data-i18n-placeholder="about.form.fullnamePlaceholder" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label"><span data-i18n="about.form.email">Email Address</span> <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true" placeholder="Enter your email address" data-i18n-placeholder="about.form.emailPlaceholder" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label"><span data-i18n="about.form.phone">Phone Number</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number (optional)" data-i18n-placeholder="about.form.phonePlaceholder" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label"><span data-i18n="about.form.subject">Subject</span> <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="text" id="subject" name="subject" class="form-input" required aria-required="true" placeholder="Enter the subject" data-i18n-placeholder="about.form.subjectPlaceholder" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label"><span data-i18n="about.form.message">Message</span> <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" class="form-textarea" required aria-required="true" rows="5" placeholder="Write your message here" data-i18n-placeholder="about.form.messagePlaceholder"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" data-i18n="about.form.submit">Send Message</button>
+                </form>
+
+                <!-- Success message (hidden initially) -->
+                <div id="contact-success" class="success-message" role="status" aria-live="polite" style="display: none;">
+                    <p data-i18n="about.form.success">Thank you! Your message has been sent successfully.</p>
+                </div>
+
+                <!-- Error message (hidden initially) -->
+                <div id="contact-error" class="error-message" role="alert" aria-live="assertive" style="display: none;">
+                    <p data-i18n="about.form.error">Failed to send message. Please try again.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SmartExcel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/shared/i18n.js"></script>
+    <script src="js/shared/nav.js"></script>
+    <script src="js/core/state-manager.js"></script>
+    <script src="js/core/ui-utils.js"></script>
+    <script src="js/pages/about-page.js"></script>
+    <script>if (typeof I18n !== 'undefined') I18n.init();</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Excel Files - SmartExcel</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <!-- Navigation injected by nav.js -->
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="section">
+            <h1 data-i18n="compare.title">Compare Excel Files</h1>
+            <p class="page-description" data-i18n="compare.description">Upload two Excel files and select a key column to compare them. SmartExcel will identify matching records, records unique to each file, and duplicates.</p>
+
+            <div class="page-illustration" style="text-align:center; margin: 1.5rem 0;">
+                <svg width="260" height="160" viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two overlapping documents representing file comparison">
+                    <!-- Left document -->
+                    <rect x="30" y="20" width="100" height="130" rx="8" fill="#ffffff" stroke="#0f7b6c" stroke-width="2"/>
+                    <rect x="30" y="20" width="100" height="24" rx="8" fill="#0f7b6c"/>
+                    <rect x="44" y="29" width="32" height="6" rx="2" fill="#ffffff"/>
+                    <rect x="84" y="29" width="32" height="6" rx="2" fill="#ffffff"/>
+                    <rect x="44" y="56" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="80" y="56" width="36" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="44" y="72" width="36" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="80" y="72" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="44" y="88" width="24" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="80" y="88" width="32" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="44" y="104" width="32" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="80" y="104" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <!-- Right document -->
+                    <rect x="130" y="20" width="100" height="130" rx="8" fill="#ffffff" stroke="#14a08c" stroke-width="2"/>
+                    <rect x="130" y="20" width="100" height="24" rx="8" fill="#14a08c"/>
+                    <rect x="144" y="29" width="32" height="6" rx="2" fill="#ffffff"/>
+                    <rect x="184" y="29" width="32" height="6" rx="2" fill="#ffffff"/>
+                    <rect x="144" y="56" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="180" y="56" width="36" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="144" y="72" width="36" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="180" y="72" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="144" y="88" width="24" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="180" y="88" width="32" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="144" y="104" width="32" height="5" rx="2" fill="#d1d5db"/>
+                    <rect x="180" y="104" width="28" height="5" rx="2" fill="#d1d5db"/>
+                    <!-- Overlap indicator - Venn-style circles -->
+                    <circle cx="110" cy="140" r="18" fill="#0f7b6c" opacity="0.2"/>
+                    <circle cx="150" cy="140" r="18" fill="#14a08c" opacity="0.2"/>
+                    <!-- Arrows between documents -->
+                    <path d="M125 75 L135 75" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M132 71 L136 75 L132 79" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <form id="compare-form" novalidate>
+                <div class="compare-uploads">
+                    <div class="form-group">
+                        <label for="file1-input" data-i18n="compare.file1">File 1</label>
+                        <div class="file-upload">
+                            <div class="file-upload__area" id="file1-drop-area">
+                                <span class="file-upload__icon" aria-hidden="true">📄</span>
+                                <p class="file-upload__text"><strong data-i18n="compare.chooseFile">Choose file</strong> <span data-i18n="compare.dragHere">or drag it here</span></p>
+                                <p class="file-upload__hint" data-i18n="compare.fileHint">Accepts .xlsx, .xls (max 10MB)</p>
+                                <input type="file" id="file1-input" accept=".xlsx,.xls" aria-describedby="file1-info">
+                            </div>
+                            <div class="file-upload__info" id="file1-info" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file2-input" data-i18n="compare.file2">File 2</label>
+                        <div class="file-upload">
+                            <div class="file-upload__area" id="file2-drop-area">
+                                <span class="file-upload__icon" aria-hidden="true">📄</span>
+                                <p class="file-upload__text"><strong data-i18n="compare.chooseFile">Choose file</strong> <span data-i18n="compare.dragHere">or drag it here</span></p>
+                                <p class="file-upload__hint" data-i18n="compare.fileHint">Accepts .xlsx, .xls (max 10MB)</p>
+                                <input type="file" id="file2-input" accept=".xlsx,.xls" aria-describedby="file2-info">
+                            </div>
+                            <div class="file-upload__info" id="file2-info" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="column-select" data-i18n="compare.columnLabel">Comparison Column</label>
+                    <select id="column-select" disabled aria-describedby="column-hint">
+                        <option value="" data-i18n="compare.columnPlaceholder">-- Upload both files first --</option>
+                    </select>
+                    <span id="column-hint" class="form-hint" data-i18n="compare.columnHint">Select the column used to match records between files.</span>
+                </div>
+
+                <button type="submit" class="btn btn--primary" id="compare-submit-btn" data-i18n="compare.submitBtn">Compare Files</button>
+            </form>
+
+            <div class="demo-notice" id="demo-notice" aria-live="polite">
+                <span class="demo-notice__text" data-i18n="compare.demo">Demo Mode: Results are simulated for demonstration purposes. Upload your own files to see real comparison results.</span>
+                <button type="button" class="demo-notice__dismiss" aria-label="Dismiss demo notice" id="demo-dismiss-btn">&times;</button>
+            </div>
+
+            <section class="results-section" id="results-section" aria-label="Comparison Results">
+                <div class="results-section__header">
+                    <h2 class="results-section__title" data-i18n="compare.results">Results</h2>
+                </div>
+
+                <div class="results-summary" id="results-summary" aria-live="polite">
+                    <div class="results-summary__item">
+                        <span class="results-summary__value" id="summary-matched">0</span>
+                        <span class="results-summary__label" data-i18n="compare.matched">Matched</span>
+                    </div>
+                    <div class="results-summary__item">
+                        <span class="results-summary__value" id="summary-file1only">0</span>
+                        <span class="results-summary__label" data-i18n="compare.file1Only">File 1 Only</span>
+                    </div>
+                    <div class="results-summary__item">
+                        <span class="results-summary__value" id="summary-file2only">0</span>
+                        <span class="results-summary__label" data-i18n="compare.file2Only">File 2 Only</span>
+                    </div>
+                    <div class="results-summary__item">
+                        <span class="results-summary__value" id="summary-duplicates">0</span>
+                        <span class="results-summary__label" data-i18n="compare.duplicates">Duplicates</span>
+                    </div>
+                </div>
+
+                <div id="results-table-container"></div>
+
+                <button type="button" class="btn btn--secondary" id="download-btn" style="display:none;" data-i18n="compare.download">Download Results</button>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SmartExcel. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/shared/i18n.js"></script>
+    <script src="js/shared/nav.js"></script>
+    <script src="js/shared/demo-data.js"></script>
+    <script src="js/core/state-manager.js"></script>
+    <script src="js/core/ui-utils.js"></script>
+    <script src="js/core/file-handler.js"></script>
+    <script src="js/engines/comparison-engine.js"></script>
+    <script src="js/shared/download.js"></script>
+    <script src="js/pages/compare-page.js"></script>
+    <script>if (typeof I18n !== 'undefined') I18n.init();</script>
+</body>
+</html>

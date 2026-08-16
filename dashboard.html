@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartExcel</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <!-- Navigation injected by nav.js -->
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="section">
+            <h1 data-i18n="dashboard.title">Business Dashboard</h1>
+            <p class="page-description" data-i18n="dashboard.description">Upload your Excel file to generate an interactive business dashboard with KPIs, charts, and analytics.</p>
+
+            <div class="page-illustration" style="text-align:center; margin: 1.5rem 0;">
+                <svg width="280" height="160" viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Charts and graphs representing data analytics dashboard">
+                    <!-- Background panel -->
+                    <rect x="10" y="10" width="260" height="140" rx="10" fill="#e6f7f4"/>
+                    <!-- Bar chart -->
+                    <rect x="30" y="40" width="100" height="90" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <rect x="42" y="100" width="14" height="22" rx="3" fill="#0f7b6c"/>
+                    <rect x="62" y="85" width="14" height="37" rx="3" fill="#14a08c"/>
+                    <rect x="82" y="70" width="14" height="52" rx="3" fill="#0f7b6c"/>
+                    <rect x="102" y="90" width="14" height="32" rx="3" fill="#14a08c"/>
+                    <rect x="38" y="48" width="40" height="5" rx="2" fill="#374151"/>
+                    <!-- Pie chart area -->
+                    <rect x="150" y="40" width="100" height="90" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+                    <circle cx="200" cy="90" r="28" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+                    <path d="M200 62 A28 28 0 0 1 224 78 L200 90 Z" fill="#0f7b6c"/>
+                    <path d="M224 78 A28 28 0 0 1 210 116 L200 90 Z" fill="#14a08c"/>
+                    <path d="M210 116 A28 28 0 0 1 176 98 L200 90 Z" fill="#0f7b6c" opacity="0.5"/>
+                    <path d="M176 98 A28 28 0 0 1 200 62 L200 90 Z" fill="#e5e7eb"/>
+                    <rect x="158" y="48" width="36" height="5" rx="2" fill="#374151"/>
+                    <!-- KPI indicators -->
+                    <circle cx="50" cy="25" r="6" fill="#0f7b6c" opacity="0.3"/>
+                    <circle cx="140" cy="25" r="4" fill="#14a08c" opacity="0.4"/>
+                    <circle cx="240" cy="25" r="5" fill="#0f7b6c" opacity="0.25"/>
+                </svg>
+            </div>
+
+            <form id="dashboard-form" class="upload-form" novalidate>
+                <div class="form-group">
+                    <label for="dashboard-file" data-i18n="dashboard.fileLabel">Upload Excel File</label>
+                    <input type="file" id="dashboard-file" accept=".xlsx,.xls" aria-describedby="file-info">
+                    <div id="file-info" class="file-info" aria-live="polite"></div>
+                </div>
+                <button type="submit" class="btn btn--primary" data-i18n="dashboard.submitBtn">Generate Dashboard</button>
+            </form>
+
+            <div class="demo-notice" id="demo-notice" aria-live="polite">
+                <p data-i18n="dashboard.demo"><strong>Demo Mode:</strong> Results are simulated for demonstration purposes. Upload your own file to see real dashboard analytics.</p>
+            </div>
+
+            <div id="dashboard-content" class="dashboard-content">
+                <section class="kpi-section" aria-label="Key Performance Indicators">
+                    <div class="kpi-grid" id="kpi-grid"></div>
+                </section>
+
+                <section class="charts-section" aria-label="Charts">
+                    <div class="chart-container" id="chart-container">
+                        <canvas id="chart-primary" aria-label="Primary chart"></canvas>
+                        <canvas id="chart-secondary" aria-label="Secondary chart"></canvas>
+                    </div>
+                </section>
+
+                <section class="customer-stats-section" aria-label="Customer Statistics">
+                    <h2 data-i18n="dashboard.customerStats">Customer Statistics</h2>
+                    <div id="customer-stats" class="customer-stats"></div>
+                </section>
+
+                <section class="top-products-section" aria-label="Top Products">
+                    <h2 data-i18n="dashboard.topProducts">Top Products</h2>
+                    <div id="top-products-table" class="top-products-table"></div>
+                </section>
+
+                <div class="download-section" id="download-section" style="display:none;">
+                    <button type="button" class="btn btn--primary" id="download-report-btn" data-i18n="dashboard.download">Download Report</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SmartExcel. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="js/shared/i18n.js"></script>
+    <script src="js/shared/nav.js"></script>
+    <script src="js/shared/demo-data.js"></script>
+    <script src="js/shared/download.js"></script>
+    <script src="js/core/state-manager.js"></script>
+    <script src="js/core/ui-utils.js"></script>
+    <script src="js/core/file-handler.js"></script>
+    <script src="js/engines/dashboard-engine.js"></script>
+    <script src="js/pages/dashboard-page.js"></script>
+    <script>if (typeof I18n !== 'undefined') I18n.init();</script>
+</body>
+</html>

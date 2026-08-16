@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Excel Files - SmartExcel</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <!-- Navigation injected by nav.js -->
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="section">
+            <h1 data-i18n="clean.title">Clean Excel Files</h1>
+            <p class="page-description" data-i18n="clean.description">Upload your Excel file and choose cleaning options to automatically remove errors, duplicates, and inconsistencies from your data.</p>
+
+            <div class="page-illustration" style="text-align:center; margin: 1.5rem 0;">
+                <svg width="240" height="160" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Document with sparkles representing clean data">
+                    <!-- Document -->
+                    <rect x="60" y="10" width="120" height="140" rx="8" fill="#ffffff" stroke="#0f7b6c" stroke-width="2"/>
+                    <rect x="60" y="10" width="120" height="26" rx="8" fill="#0f7b6c"/>
+                    <rect x="76" y="20" width="40" height="6" rx="2" fill="#ffffff"/>
+                    <rect x="124" y="20" width="40" height="6" rx="2" fill="#ffffff"/>
+                    <!-- Data rows with checkmarks -->
+                    <rect x="76" y="48" width="60" height="5" rx="2" fill="#d1d5db"/>
+                    <path d="M150 48 L153 52 L158 45" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="76" y="64" width="52" height="5" rx="2" fill="#d1d5db"/>
+                    <path d="M150 64 L153 68 L158 61" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="76" y="80" width="56" height="5" rx="2" fill="#d1d5db"/>
+                    <path d="M150 80 L153 84 L158 77" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="76" y="96" width="48" height="5" rx="2" fill="#d1d5db"/>
+                    <path d="M150 96 L153 100 L158 93" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="76" y="112" width="54" height="5" rx="2" fill="#d1d5db"/>
+                    <path d="M150 112 L153 116 L158 109" stroke="#0f7b6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Sparkles -->
+                    <path d="M40 30 L42 36 L48 38 L42 40 L40 46 L38 40 L32 38 L38 36 Z" fill="#14a08c"/>
+                    <path d="M195 25 L197 29 L201 30 L197 31 L195 35 L193 31 L189 30 L193 29 Z" fill="#14a08c" opacity="0.7"/>
+                    <path d="M205 70 L206.5 74 L210 75 L206.5 76 L205 80 L203.5 76 L200 75 L203.5 74 Z" fill="#0f7b6c" opacity="0.5"/>
+                    <path d="M35 100 L36.5 104 L40 105 L36.5 106 L35 110 L33.5 106 L30 105 L33.5 104 Z" fill="#14a08c" opacity="0.6"/>
+                </svg>
+            </div>
+
+            <form id="clean-form" novalidate>
+                <!-- File Upload Area -->
+                <div class="form-group">
+                    <label for="clean-file-input" data-i18n="clean.fileLabel">Upload Excel File</label>
+                    <input type="file" id="clean-file-input" accept=".xlsx,.xls" aria-describedby="clean-file-info" />
+                    <span id="clean-file-info" class="file-info" aria-live="polite"></span>
+                </div>
+
+                <!-- Cleaning Options -->
+                <fieldset class="form-group">
+                    <legend data-i18n="clean.optionsLegend">Cleaning Options</legend>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="removeDuplicates" />
+                            <span data-i18n="clean.option.duplicates">Remove duplicates</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="removeEmptyRows" />
+                            <span data-i18n="clean.option.emptyRows">Remove empty rows</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="trimSpaces" />
+                            <span data-i18n="clean.option.trimSpaces">Trim unnecessary spaces</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="standardizeFormats" />
+                            <span data-i18n="clean.option.standardize">Standardize data formats</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="detectMissingValues" />
+                            <span data-i18n="clean.option.missingValues">Detect missing values</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cleanOption" value="fixDateFormats" />
+                            <span data-i18n="clean.option.fixDates">Fix date formats</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn--primary" data-i18n="clean.submitBtn">Clean File</button>
+            </form>
+
+            <!-- Demo Notice -->
+            <div class="demo-notice" id="demo-notice" aria-live="polite">
+                <p data-i18n="clean.demo"><strong>Demo Mode:</strong> Results are simulated for demonstration purposes. Upload your own file to see real cleaning results.</p>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" aria-label="Cleaning results">
+                <h2 data-i18n="clean.results.title">Results Summary</h2>
+                <div class="results-summary"></div>
+                <button type="button" class="btn btn--success download-btn" style="display:none;" data-i18n="clean.download">Download Cleaned File</button>
+                <div class="preview-table"></div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SmartExcel. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/shared/i18n.js"></script>
+    <script src="js/shared/nav.js"></script>
+    <script src="js/shared/demo-data.js"></script>
+    <script src="js/core/state-manager.js"></script>
+    <script src="js/core/ui-utils.js"></script>
+    <script src="js/core/file-handler.js"></script>
+    <script src="js/engines/cleaning-engine.js"></script>
+    <script src="js/shared/download.js"></script>
+    <script src="js/pages/clean-page.js"></script>
+    <script>if (typeof I18n !== 'undefined') I18n.init();</script>
+</body>
+</html>
