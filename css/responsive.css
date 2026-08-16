@@ -1,0 +1,454 @@
+/* ============================================================
+   SmartExcel Platform — Responsive Styles
+   ============================================================
+   Breakpoints:
+   - Mobile: max-width 768px
+   - Tablet: 769px – 1279px
+   - Desktop: min-width 1280px
+
+   NOTE: Base mobile nav collapse, footer responsive, and heading
+   scale-down are handled in styles.css. This file covers additional
+   responsive patterns for page-specific layouts.
+   ============================================================ */
+
+/* ==============================================================
+   DESKTOP (min-width: 1280px)
+   ============================================================== */
+@media (min-width: 1280px) {
+  /* KPI Cards Grid — 4 columns */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Hero Section — side by side */
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  .hero__content {
+    flex: 1;
+    max-width: 55%;
+  }
+
+  .hero__image {
+    flex: 1;
+    max-width: 45%;
+  }
+
+  /* How It Works Steps — horizontal layout */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-8);
+  }
+
+  /* Service Cards Grid — 3 columns */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Benefits List — 2 columns */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Contact Form Layout — side by side with info */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  /* Chart Container — full width with comfortable height */
+  .chart-container {
+    min-height: 400px;
+    padding: var(--space-6);
+  }
+
+  /* Results Section — comfortable spacing */
+  .results-section {
+    padding: var(--space-8);
+  }
+}
+
+/* ==============================================================
+   TABLET (769px – 1279px)
+   ============================================================== */
+@media (min-width: 769px) and (max-width: 1279px) {
+  /* KPI Cards Grid — 2 columns */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  /* Hero Section — side by side, tighter */
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .hero__content {
+    flex: 1;
+    max-width: 55%;
+  }
+
+  .hero__image {
+    flex: 1;
+    max-width: 45%;
+  }
+
+  /* How It Works Steps — 2 columns */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Service Cards Grid — 2 columns */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  /* Benefits List — 2 columns */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  /* Contact Form Layout — stacked */
+  .contact-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  /* Chart Container */
+  .chart-container {
+    min-height: 320px;
+    padding: var(--space-5);
+  }
+
+  /* Results Section */
+  .results-section {
+    padding: var(--space-6);
+  }
+
+  /* Form layout — 2 column where applicable */
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .form-row--full {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================================================
+   MOBILE (max-width: 768px)
+   ============================================================== */
+@media (max-width: 768px) {
+  /* KPI Cards Grid — 1 column stacked */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Hero Section — stacked vertically */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  .hero__content {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .hero__image {
+    max-width: 100%;
+    order: 2;
+  }
+
+  .hero__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* How It Works Steps — single column vertical */
+  .steps-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  /* Service Cards Grid — 1 column */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Benefits List — 1 column */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Contact Form Layout — stacked */
+  .contact-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  /* Form inputs — full width on mobile */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* Chart Container — reduced height */
+  .chart-container {
+    min-height: 250px;
+    padding: var(--space-4);
+  }
+
+  .chart-container canvas {
+    max-height: 280px;
+  }
+
+  /* Results Section — tighter padding */
+  .results-section {
+    padding: var(--space-4);
+  }
+
+  /* Table responsive — horizontal scroll */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .table-responsive table {
+    min-width: 600px;
+  }
+
+  /* File Upload Area — full width, compact */
+  .file-upload {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .file-upload__icon {
+    font-size: var(--font-size-2xl);
+  }
+
+  .file-upload__label {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Section spacing reduced on mobile */
+  .section {
+    padding: var(--space-10) 0;
+  }
+
+  .section--lg {
+    padding: var(--space-12) 0;
+  }
+
+  /* CTA buttons — full width on mobile */
+  .hero .btn,
+  .hero .btn-primary,
+  .hero .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Comparison result summary — stack badges */
+  .result-summary {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .result-summary__item {
+    width: 100%;
+  }
+
+  /* Download buttons — full width */
+  .download-actions {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .download-actions .btn {
+    width: 100%;
+  }
+
+  /* Cleaning options checklist — single column */
+  .cleaning-options {
+    grid-template-columns: 1fr;
+  }
+
+  /* Dashboard customer stats — stack */
+  .customer-stats {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* Tab navigation for results — scrollable */
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding-bottom: var(--space-2);
+  }
+
+  .tabs__list {
+    display: inline-flex;
+    min-width: 100%;
+  }
+}
+
+/* ==============================================================
+   SHARED RESPONSIVE UTILITIES
+   (Apply across breakpoints where needed)
+   ============================================================== */
+
+/* Ensure tables are always horizontally scrollable when needed */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* File upload drag area — responsive base */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Hero actions container */
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Form group base layout */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Steps connector line — hidden on mobile, visible on desktop */
+@media (min-width: 769px) {
+  .step-card {
+    position: relative;
+  }
+
+  .step-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: calc(-1 * var(--space-4));
+    width: var(--space-8);
+    height: 2px;
+    background-color: var(--color-gray-200);
+    transform: translateY(-50%);
+  }
+
+  .step-card:last-child::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-card::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--space-3));
+    left: 50%;
+    width: 2px;
+    height: var(--space-6);
+    background-color: var(--color-gray-200);
+    transform: translateX(-50%);
+  }
+
+  .step-card:last-child::after {
+    display: none;
+  }
+}
+
+/* Chart grid for multiple charts */
+.charts-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1280px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Comparison file upload — side by side on desktop/tablet, stacked on mobile */
+.compare-uploads {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 769px) {
+  .compare-uploads {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .compare-uploads {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,248 @@
+/* ==========================================================================
+   RTL Support Styles — Hebrew language layout adjustments
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Navbar RTL */
+[dir="rtl"] .navbar .container {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar__nav {
+  flex-direction: row-reverse;
+}
+
+/* Hero RTL */
+[dir="rtl"] .hero {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero__actions {
+  justify-content: flex-end;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer__content {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__nav {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__bottom {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__bottom-links {
+  flex-direction: row-reverse;
+}
+
+/* Form elements RTL */
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-textarea,
+[dir="rtl"] .form-select,
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+[dir="rtl"] .form-select,
+[dir="rtl"] select {
+  background-position: left 0.75rem center;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+}
+
+/* File upload RTL */
+[dir="rtl"] .file-upload__area {
+  text-align: right;
+}
+
+/* KPI cards RTL */
+[dir="rtl"] .kpi-card {
+  text-align: right;
+}
+
+/* Results summary RTL */
+[dir="rtl"] .results-summary {
+  direction: rtl;
+}
+
+/* Toast notifications RTL */
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: 1rem;
+}
+
+[dir="rtl"] .toast {
+  flex-direction: row-reverse;
+  border-left: none;
+  border-right: 4px solid var(--color-gray-400, #9ca3af);
+}
+
+[dir="rtl"] .toast--success { border-right-color: var(--color-success, #059669); border-left: none; }
+[dir="rtl"] .toast--error { border-right-color: var(--color-error, #dc2626); border-left: none; }
+[dir="rtl"] .toast--info { border-right-color: var(--color-info, #2563eb); border-left: none; }
+[dir="rtl"] .toast--warning { border-right-color: var(--color-warning, #d97706); border-left: none; }
+
+/* Demo notice RTL */
+[dir="rtl"] .demo-notice {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Skip navigation RTL */
+[dir="rtl"] .skip-nav {
+  left: auto;
+  right: 1rem;
+}
+
+/* Feature list RTL */
+[dir="rtl"] .feature-list li {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+[dir="rtl"] .feature-list li::before {
+  left: auto;
+  right: 0;
+}
+
+/* Compare uploads grid RTL */
+[dir="rtl"] .compare-uploads {
+  direction: rtl;
+}
+
+/* Table alignment RTL */
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td {
+  text-align: right;
+}
+
+/* Cards RTL */
+[dir="rtl"] .card__footer {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .card__body {
+  text-align: right;
+}
+
+/* Page description RTL */
+[dir="rtl"] .page-description {
+  text-align: right;
+}
+
+/* Checkbox grid RTL */
+[dir="rtl"] .checkbox-label {
+  direction: rtl;
+}
+
+[dir="rtl"] .checkbox-label input[type="checkbox"] {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Form group labels RTL */
+[dir="rtl"] .form-label,
+[dir="rtl"] label {
+  text-align: right;
+}
+
+/* Steps and benefits center alignment override */
+[dir="rtl"] .text-center {
+  text-align: center;
+}
+
+[dir="rtl"] .step-card .card__body {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Language Switcher Styles
+   ========================================================================== */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .lang-switcher {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+.lang-switcher__btn {
+  background: none;
+  border: 1px solid var(--color-gray-300, #d1d5db);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-600, #4b5563);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.lang-switcher__btn:hover {
+  background-color: var(--color-gray-100, #f3f4f6);
+  color: var(--color-gray-900, #111827);
+}
+
+.lang-switcher__btn:focus-visible {
+  outline: 2px solid var(--color-primary, #0f7b6c);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Mobile RTL Overrides
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  [dir="rtl"] .navbar__nav {
+    flex-direction: column;
+  }
+
+  [dir="rtl"] .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  [dir="rtl"] .hero__actions {
+    justify-content: center;
+  }
+
+  [dir="rtl"] .footer__content {
+    flex-direction: column;
+  }
+
+  [dir="rtl"] .footer__nav {
+    flex-direction: column;
+  }
+
+  [dir="rtl"] .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .lang-switcher {
+    margin-left: 0.5rem;
+  }
+
+  [dir="rtl"] .lang-switcher {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+}
